@@ -1,7 +1,7 @@
 <h2>団体登録</h2>
 
-<%= form_with model: Member.new, url: registration_path do |f| %>
-  <%= render "members/shared/error_messages", resource: resource %>
+<%= form_with model: @member, url: member_registration_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -16,7 +16,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> AAcharacters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -31,4 +31,4 @@
   </div>
 <% end %>
 
-<%= render "members/shared/links" %>
+<%= render "devise/shared/links" %>

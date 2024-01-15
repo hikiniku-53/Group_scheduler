@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # ログアウト後のアクセス先
   def after_sign_out_path_for(resource_or_scope)
     root_path
-    
+
   end
 
   protected

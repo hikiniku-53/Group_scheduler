@@ -34,8 +34,6 @@ class DeviseCreateMembers < ActiveRecord::Migration[6.1]
 
       # カラムの追加
       t.string :name, null: false
-      t.boolean :is_admin, null: false, default: "false"
-      t.bigint :group_id, null: false
       t.timestamps null: false
 
     end

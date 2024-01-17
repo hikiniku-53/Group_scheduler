@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_10_144300) do
+ActiveRecord::Schema.define(version: 2024_01_17_133640) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "group_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_name"], name: "index_groups_on_group_name", unique: true
+  end
+
+  create_table "member_infos", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "member_id", null: false
+    t.boolean "is_admin", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false

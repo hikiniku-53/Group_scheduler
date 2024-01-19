@@ -5,4 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :member_info, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true
 end

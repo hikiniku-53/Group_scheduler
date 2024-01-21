@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_17_133640) do
+ActiveRecord::Schema.define(version: 2024_01_20_145234) do
+
+  create_table "attends", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "event_id", null: false
+    t.boolean "is_attended"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "event_genres", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.integer "event_genre_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "event_genre_id", null: false
+    t.bigint "place_id", null: false
+    t.date "date"
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "group_name", null: false
@@ -39,6 +66,23 @@ ActiveRecord::Schema.define(version: 2024_01_17_133640) do
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["name"], name: "index_members_on_name", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "membership_fees", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.integer "fee", null: false
+    t.integer "fee_type", null: false
+    t.boolean "is_paid", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :members
+  devise_for :members, controllers: { invitations: 'members/invitations'}
   # ルートパス
   root to: 'homes#top'
 

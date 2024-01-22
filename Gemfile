@@ -56,3 +56,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+# mkdir db/fixtures
+gem 'seed-fu'
+
+# rails g devise_invitable:install
+gem 'devise_invitable'

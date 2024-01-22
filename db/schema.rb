@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_20_145234) do
+ActiveRecord::Schema.define(version: 2024_01_22_122341) do
 
   create_table "attends", force: :cascade do |t|
     t.bigint "member_id", null: false
@@ -63,7 +63,18 @@ ActiveRecord::Schema.define(version: 2024_01_20_145234) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.integer "invited_by_id"
+    t.integer "invitations_count", default: 0
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["invitation_token"], name: "index_members_on_invitation_token", unique: true
+    t.index ["invited_by_id"], name: "index_members_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_members_on_invited_by"
     t.index ["name"], name: "index_members_on_name", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end

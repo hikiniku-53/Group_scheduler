@@ -12,9 +12,17 @@
   </head>
 
   <body>
+    <br>
+    <br>
+    <% if member_signed_in? %>
+      <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
 
-    <%= member_signed_in? do %>
+      <%= link_to "招待", new_member_invitation_path %>
+    <% else %>
       <%= link_to "会員登録", new_member_registration_path %>
+
+      <%= link_to "ログイン", new_member_session_path %>
+new_member_invitation
     <% end %>
 
     <%= yield %>

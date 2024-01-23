@@ -1,4 +1,5 @@
 class Members::InvitationsController < Devise::InvitationsController
+
   def update
     if some_condition
       redirect_to root_path

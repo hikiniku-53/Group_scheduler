@@ -47,6 +47,7 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
+  config.authentication_keys = [:name]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -54,6 +55,7 @@ Devise.setup do |config|
   # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
   # The same considerations mentioned for authentication_keys also apply to request_keys.
   # config.request_keys = []
+  # config.request_keys = [:name]
 
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
@@ -158,6 +160,7 @@ Devise.setup do |config|
   # Ensure that invited record is valid.
   # The invitation won't be sent if this check fails.
   # Default: false
+  # config.validate_on_invite = true
   # config.validate_on_invite = true
 
   # Resend invitation if user with invited status is invited again

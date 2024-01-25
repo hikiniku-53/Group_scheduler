@@ -4,9 +4,15 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <% resource.class.invite_key_fields.each do |field| -%>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.text_field :email %>
+      <%= f.email_field :email %>
     </div>
   <% end -%>
 

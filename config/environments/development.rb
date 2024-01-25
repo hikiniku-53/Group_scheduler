@@ -73,6 +73,8 @@ Rails.application.configure do
 
   config.hosts << "282f23aed40647ee88b300fc1e4e7952.vfs.cloud9.ap-northeast-1.amazonaws.com"
 
+  config.action_mailer.default_url_options = { host: "samplehost"}
+
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end

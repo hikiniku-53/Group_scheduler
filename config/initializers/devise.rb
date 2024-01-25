@@ -142,6 +142,9 @@ Devise.setup do |config|
   # When invite_for is 0 (the default), the invitation won't expire.
   # config.invite_for = 2.weeks
 
+  # 招待の有効期間
+  config.invite_for = 2.days
+
   # Number of invitations users can send.
   # - If invitation_limit is nil, there is no limit for invitations, users can
   # send unlimited invitations, invitation_limit column is not used.
@@ -171,6 +174,9 @@ Devise.setup do |config|
   # the #invited_by association is declared to be polymorphic.
   # Default: nil
   # config.invited_by_class_name = 'User'
+  
+  # invite対象モデル
+  config.invited_by_class_name = 'Member'
 
   # The foreign key to the inviting model (if invited_by_class_name is set)
   # Default: :invited_by_id

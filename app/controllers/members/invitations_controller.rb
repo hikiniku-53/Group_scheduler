@@ -1,10 +1,21 @@
 class Members::InvitationsController < Devise::InvitationsController
+  def new
+    super
+  end
+
+  def create
+    super
+  end
+
+  def edit
+    super
+  end
 
   def update
-    if some_condition
-      redirect_to root_path
-    else
-      super
-    end
+    super
+  end
+
+  def destroy
+    super
   end
 end
